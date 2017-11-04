@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'demos-models-dbcrud-list' %}">Go Back To list</a>
+    <form method="post">
+    {% csrf_token %}
+        <button class="btn btn-danger">Are you sure you want to delete {{ object }}?</button>
+    </form>
+{% endblock %}

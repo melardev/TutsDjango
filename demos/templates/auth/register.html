@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>hurry up!!! Sign up</h3>
+    {% if form.erros %}
+         <div class="alert alert-danger" role="alert">
+        <strong>Errors {{ form.errors }}</strong>
+    </div>
+    {% endif %}
+    <form role="form" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-info">Signup</button>
+    </form>
+{% endblock %}

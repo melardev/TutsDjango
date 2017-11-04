@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'demos-models-dbcrud-create' %}">Create New</a>
+    <br>
+    {% if object_list %}
+        {% for post in object_list %}
+            <span>{{ post.title }}</span>
+            <p>{{ post.body }}</p>
+
+
+            <a href="{% url 'demos-models-dbcrud-detail' post.id %}" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Read more</a>
+            <a href="{% url 'demos-models-dbcrud-update' post.id %}" class="btn btn-warning btn-sm">
+                <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                Edit</a>
+
+            <a href="{% url 'demos-models-dbcrud-delete' post.id %}" class="btn btn-danger btn-sm">
+                <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
+                Delete
+            </a>
+
+                <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

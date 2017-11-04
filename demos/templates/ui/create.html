@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if form %}
+        <a href="{% url 'demos-ui-createview' %}">Go Back</a>
+        <form role="form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        {{ from_context }}
+    {% else %}
+        <a href="{% url 'demos-ui-createview' %}?approach=1">
+            <button type="button" class="button btn-info"> Approach 1</button>
+        </a>
+        <a href="{% url 'demos-ui-createview' %}?approach=2">
+            <button type="button" class="button btn-info"> Approach 2</button>
+        </a>
+        <a href="{% url 'demos-ui-createview' %}?approach=3">
+            <button type="button" class="button btn-info"> Approach 3</button>
+        </a>
+        <a href="{% url 'demos-ui-createview' %}?approach=4">
+            <button type="button" class="button btn-info"> Approach 4</button>
+        </a>
+
+    {% endif %}
+
+{% endblock %}

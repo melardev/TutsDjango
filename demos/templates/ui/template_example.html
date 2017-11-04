@@ -1,0 +1,25 @@
+{# Extends from base.html which would be our layout #}
+{% extends 'base.html' %}
+
+{# Replace the empty blocks in base.html with the defined block here #}
+{% block content %}
+
+    <p>Templates expressions are not python, if you want to run python code then you add it
+        as a "plugin" using filters or tags (explained in other video in this same django playlist)
+        This has advantages, such as enforcing separation between the ui code
+        and the business logic code, you don't want to mess your html files with a hardly maintanable mixin
+        of python and html code, instead you want to keep it clean, well, django enforces that.
+    </p>
+    <span>{{ 2|add:1 }}</span>
+    {% if user.is_authenticated %}
+        <div class="alert alert-info" role="alert">
+            Welcome <strong>{{ request.user.username }}<br/></strong>
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <strong>You are not signed in</strong>
+        </div>
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'auth-social' %}">Login with social links</a>
+    {% endif %}
+{% endblock %}

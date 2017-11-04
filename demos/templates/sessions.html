@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if username is None %}
+        <form role="form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" value="Submit" class="btn btn-info">LogIn</button>
+        </form>
+    {% else %}
+        <h3>Welcome you are signed in as {{ username }}</h3>
+        <a href="{% url "demos-sessions" %}?action=logout">LogOut</a>
+    {% endif %}
+
+{% endblock %}

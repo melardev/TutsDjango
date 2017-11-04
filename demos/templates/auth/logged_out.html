@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="alert alert-success" role="alert">
+        <strong>Successfully logged out</strong>
+    </div>
+    <a href="{% url 'login' %}">Login</a> |
+    <a href="{% url 'auth-social' %}">Login with social links</a> |
+    <a href="{% url 'auth-status' %}">Auth-status</a>
+
+{% endblock %}

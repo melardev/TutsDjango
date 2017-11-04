@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if object_list %}
+        <a href="{% url 'demos-ui-pagination' %}">Go Back</a>
+        <h5>ListView</h5>
+        <p>You have to set page GET query parameter to the page you want to access</p>
+        {% for post in object_list %}
+            <h2>{{ post.id }}-{{ post.title }}</h2>
+            <p>{{ post.body }}</p>
+        {% endfor %}
+
+        <ul class="pagination">
+            <li>
+                <a href="{% url 'demos-ui-pagination' %}?approach=listview&items_per_page=2&page={{ page_obj.number|add:-1 }}">Prev</a>|
+            </li>
+            <li>
+                <a href="{% url 'demos-ui-pagination' %}?approach=listview&items_per_page=2&page={{ page_obj.number|add:1 }}">Next</a>
+            </li>
+
+        </ul>
+    {% elif items %}
+        <a href="{% url 'demos-ui-pagination' %}">Go Back</a>
+        <h3>Paginator</h3>
+        {% for item in items %}
+            <h2>{{ item.id }}-{{ item.title }}</h2>
+            <p>{{ item.body }}</p>
+        {% endfor %}
+
+        <ul class="pagination">
+            {% if previous_page_number %}
+                <li>
+                    <a href="{% url 'demos-ui-pagination' %}?approach=paginator&items_per_page=2&page_number={{ previous_page_number }}">Prev</a>|
+                </li>
+            {% endif %}
+            {% if next_page_number %}
+                <li>
+                    <a href="{% url 'demos-ui-pagination' %}?approach=paginator&items_per_page=2&page_number={{ next_page_number }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    {% else %}
+
+        <a href="{% url 'demos-ui-pagination' %}?approach=listview&items_per_page=2&page=1">
+            <button type="button" class="button btn-info"> ListView Based</button>
+        </a>
+        <a href="{% url 'demos-ui-pagination' %}?approach=paginator&items_per_page=2&page_number=1">
+            <button type="button" class="button btn-warning"> Paginator Based</button>
+        </a>
+
+    {% endif %}
+
+{% endblock %}

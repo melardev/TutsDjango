@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="inline-group">
+    <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-social-icon btn-google-plus"><i
+            class="fa fa-google-plus"></i></a>
+    <a href="{% url "social:begin" "twitter" %}" class="btn btn-social-icon btn-twitter"><i
+            class="fa fa-twitter"></i></a>
+    <a href="{% url "social:begin" "facebook" %}" class="btn btn-social-icon btn-facebook"><i
+            class="fa fa-facebook"></i></a>
+    <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-social-icon btn-instagram"><i
+            class="fa fa-instagram"></i></a>
+    <a href="{% url "social:begin" "github" %}" class="btn btn-social-icon btn-github"><i
+            class="fa fa-github"></i></a>
+    </div>
+{% endblock %}

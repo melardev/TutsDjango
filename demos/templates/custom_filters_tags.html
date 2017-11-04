@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load custom_filter_tags %}
+
+{% block content %}
+    <p>{{ available_filters }}</p>
+    {{ long_description|shrink:10 }}
+    <p>{{ 10|to_hex }}</p>
+    <p>{{ "\n\n\n\n\n\nLol\n\n\n\n"|nl2br }}</p>
+
+    <ul class="pagination">
+        {% make_pagination Home Blog YoutubeChannel %}
+    </ul>
+
+
+    <b>{% join_them ", " "bananas" "apples" "mangos" %}</b>
+
+
+{% endblock %}

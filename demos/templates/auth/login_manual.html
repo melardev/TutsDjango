@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {% if form.errors %}
+                <strong>Invalid credentials</strong>
+            {% endif %}
+            <strong>{{ error_message }}</strong>
+        </div>
+    {% else %}
+        <h3>Enter your credentials to login</h3>
+    {% endif %}
+    <form role="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <button type="submit" class="btn btn-info">Login</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <div class="alert alert-info" role="alert">
+            <strong>You are signed in</strong>
+        </div>
+        username:{{ request.user.username }}<br/>
+        first_name:{{ request.user.first_name }}<br/>
+        last_name:{{ request.user.last_name }}<br/>
+        email:{{ request.user.email }}<br/>
+        password:{{ request.user.password }}<br/>
+        is_superuser:{{ request.user.is_superuser }}<br/>
+        last_login:{{ request.user.last_login }}<br/>
+        is_active:{{ request.user.is_active }}<br/>
+        is_staff:{{ request.user.is_staff }}<br/>
+        id: {{ request.user.id }}<br/>
+        pk: {{ request.user.pk }}
+        <br/>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <strong>You are not signed in</strong>
+        </div>
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'auth-social' %}">Login with social links</a>
+
+    {% endif %}
+{% endblock %}

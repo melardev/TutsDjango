@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form role="form" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="color">Choose color</label>
+            <input id="color" name="color" type="color" value="{{ current_color }}"/>
+            <br/>
+            <label>Current selected: {{ current_color }}</label>
+        </div>
+        <button type="submit" value="Submit" class="btn btn-info">Submit</button>
+    </form>
+{% endblock %}

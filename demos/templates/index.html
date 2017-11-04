@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul style="list-style-type: none">
+        <li><a href="{% url 'demos-cookies' %}">Cookies</a></li>
+        <li><a href="{% url 'demos-sessions' %}">Sessions</a></li>
+        <li><a href="{% url 'demos-models-dbcrud-list' %}">ToDo App</a></li>
+        <li><a href="{% url 'login-manual' %}">Login Manually</a></li>
+        <li><a href="{% url 'auth-status' %}">Auth Status</a></li>
+        <li><a href="{% url 'auth-social' %}">Social Media Auth</a></li>
+        <li><a href="{% url 'auth-register' %}">Register</a></li>
+        <li><a href="{% url 'demos-ui-filter_tag' %}">Filters and tags</a></li>
+        <li><a href="{% url 'demos-ui-pagination' %}">Pagination</a></li>
+        <li><a href="{% url 'templates-home' %}">Templates</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'password_change' %}">Change password</a></li>
+        <li><a href="{% url 'password-reset' %}">Reset password</a></li>
+        <li><a href="{% url 'demos-ui-createview' %}">CreateView</a></li>
+
+    </ul>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ demo_title }}</title>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css"/>
+
+    <style>
+        footer {
+            position: relative;
+            bottom: 0;
+            background-color: #aeaeae;
+        }
+    </style>
+
+
+</head>
+<body style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Django Tutorials</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/MelarDev">Youtube Channel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://www.melardev.com">Blog</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">{{ demo_title }}</h1>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; 2017 - Django Tutorials</span>
+        <a href="" class="btn btn-social-icon btn-google-plus"><i class="fa fa-youtube"></i></a>
+        <a href="http://facebook.com" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://github.com/melardev" class="btn btn-social-icon btn-github"><i
+                class="fa fa-github"></i></a>
+        <a href="https://plus.google.com/110174297675710954678" class="btn btn-social-icon btn-google-plus"><i
+                class="fa fa-google-plus"></i></a>
+        <a href="https://www.instagram.com/melar_dev/" class="btn btn-social-icon btn-instagram"><i
+                class="fa fa-instagram"></i></a>
+        <a href="https://twitter.com/melardev" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+
+    </div>
+</footer>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/tether.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
