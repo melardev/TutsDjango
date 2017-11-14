@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if form.errors %}
-
-    {% else %}
-        
+        <div class="alert alert-danger" role="alert">
+            {% for key,value in form.errors.items %}
+                <strong>{{ key }}</strong> : {{ value.0 }}<br/>
+            {% endfor %}
+        </div>
     {% endif %}
+
+    <form role="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 {% endblock %}

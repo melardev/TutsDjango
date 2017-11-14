@@ -1,0 +1,6 @@
+{% extends 'base_bak.html' %}
+{% block content %}
+    <a href="{% url 'demos-formodels-dbcrud-list' %}">Go Back To list</a>
+    <h3>{{ object.title }}</h3>
+    <p>{{ object.body }}</p>
+{% endblock %}

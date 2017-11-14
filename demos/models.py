@@ -2,7 +2,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.urlresolvers import reverse
-from django.conf import settings
 from django.contrib.auth.models import User
 
 
@@ -18,7 +17,7 @@ class ModelAuthor(models.Model):
 
 
 class ModelPost(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=150)
     author = models.ForeignKey(User)
     body = models.TextField()
     created = models.DateField(auto_now_add=True)
@@ -26,7 +25,6 @@ class ModelPost(models.Model):
 
     def __str__(self):
         return "post from {} created at {}".format(self.author, self.created)
-
 
 
 class ModelDummyUser(models.Model):
@@ -38,6 +36,7 @@ class ModelDummyUser(models.Model):
     def get_absolute_url(self):
         return reverse('demos-ui-createview')
 
+
 class ModelDemo(models.Model):
     first_name = models.CharField(max_length=100)
 
@@ -45,5 +44,18 @@ class ModelDemo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
 
 
+class ModelBookForRest(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    isbn = models.CharField(max_length=100)
 
 
+class ModelAuthorForRest(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
+
+class ModelBookForRestEx(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ForeignKey(ModelAuthorForRest, on_delete=models.CASCADE, related_name='author')
+    isbn = models.CharField(max_length=100)

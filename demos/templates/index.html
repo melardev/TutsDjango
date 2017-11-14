@@ -15,6 +15,7 @@
         <li><a href="{% url 'password_change' %}">Change password</a></li>
         <li><a href="{% url 'password-reset' %}">Reset password</a></li>
         <li><a href="{% url 'demos-ui-createview' %}">CreateView</a></li>
+        <li><a href="{{ request.get_full_path }}/api/books">Api Books</a></li>
 
     </ul>
 {% endblock %}

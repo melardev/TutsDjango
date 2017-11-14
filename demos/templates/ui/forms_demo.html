@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ form.errors }}</strong>
+        </div>
+    {% endif %}
+
+    <form role="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <form role="form" method="post">
+        {% csrf_token %}
+        {{ form.name.label_tag }}:{{ form.name }}
+        <br/>
+        <label for="{{ form.gender.id_for_label }}">Gender</label>
+        {{ form.gender }}
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

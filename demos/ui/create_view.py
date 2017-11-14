@@ -4,9 +4,6 @@ from django.shortcuts import render
 
 from django.views.generic.edit import CreateView
 
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-
 from demos.forms import *
 
 '''

@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from demos.models import ModelPost
-from django.core.urlresolvers import reverse_lazy, reverse
-from django.views.generic import View, CreateView, UpdateView, DetailView, DeleteView, ListView
+from django.core.urlresolvers import reverse
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 
 # We will have access to object_list which is usually the items in the query_set
 class ViewListPost(ListView):

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'social_django',
+    'rest_framework',
 
     # My apps
     'demos.apps.DemosConfig',
@@ -185,3 +186,12 @@ SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
 SOCIAL_AUTH_INSTAGRAM_KEY = ''
 SOCIAL_AUTH_INSTAGRAM_SECRET = ''
 SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}
+
+'''
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}
+'''

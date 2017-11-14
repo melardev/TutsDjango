@@ -1,11 +1,18 @@
 from django import forms
 from demos.models import ModelPost, ModelDummyUser
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 
-
-class FormPost(forms.Form):
+class FormPost(forms.ModelForm):
     class Meta:
         model = ModelPost
+        fields = ['title', 'body']
+
+
+class FormPostAdmin(forms.ModelForm):
+    class Meta:
+        model = ModelPost
+        fields = '__all__'
 
 
 class FormUserDummy(forms.ModelForm):
@@ -27,6 +34,7 @@ class FormUserDummyRaw(forms.Form):
     class Meta:
         model = FormUserDummy
 
+
 class FormEmailSend(forms.Form):
     to_email = forms.EmailField(
         widget=forms.TextInput(attrs={'placeholder': 'Email(s) to send to', 'class': 'form-control'}))
@@ -36,3 +44,12 @@ class FormEmailSend(forms.Form):
     from_email = forms.EmailField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
 
+
+class FormDummy(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Your name', 'class': 'form-control'}),
+                           label="Your Name", max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+    gender = forms.ChoiceField(choices=((1, 'Male'), (2, 'Female')), required=True)
+    curriculum_vitae = forms.CharField(widget=forms.Textarea(), label="CV")
+    age = forms.IntegerField(validators=[MinValueValidator(5), MaxValueValidator(100)])
+    agree = forms.BooleanField(required=False, label="Checking this box means you agree with the license terms")
